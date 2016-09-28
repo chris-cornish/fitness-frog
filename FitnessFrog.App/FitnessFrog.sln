@@ -7,6 +7,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessFrog.App", "FitnessF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessFrog.BMI", "FitnessFrog.BMI\FitnessFrog.BMI.csproj", "{EA01967D-CEF4-426A-BCFA-86A3FB0D44FD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web UI", "Web UI", "{97455D9B-071B-4B22-A8B2-4933DFA20633}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{5D0F2E46-1A0F-4944-BD92-00EB912892C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain Data", "Domain Data", "{AEC2173D-0186-40F8-8BE6-BD91D5BDB67E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{B52FC5A9-7A26-4DE7-AEAF-C978FDDD0EA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Win UI", "Win UI", "{D73351AE-FEF6-4936-B55B-18BC86072B2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +34,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0C1B57CE-9C15-4D30-ABC6-93A253FB71C4} = {D73351AE-FEF6-4936-B55B-18BC86072B2E}
+		{EA01967D-CEF4-426A-BCFA-86A3FB0D44FD} = {D73351AE-FEF6-4936-B55B-18BC86072B2E}
 	EndGlobalSection
 EndGlobal
