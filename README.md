@@ -10,5 +10,5 @@ Likewise, it allows Fitness-Frog to run in multiple environments (Windows, Linux
 * SQL Server 2014 Express
 
 ## Reference Pages
-http://www.microsoft.com/net/core#windows
-https://docs.asp.net/en/latest/tutorials/first-mvc-app/start-mvc.html
+* http://www.microsoft.com/net/core#windows
+* https://docs.asp.net/en/latest/tutorials/first-mvc-app/start-mvc.html
