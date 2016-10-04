@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 namespace FitnessFrog.Core.Domain
 {
     /// <summary>
-    /// Defines all members of a FitnessFrog exercise.
+    /// Defines all members of a FitnessFrog Note.
     /// </summary>
-    public class Exercise
+    public class Note
     {
+
         #region "private member"
 
         // None.
@@ -19,10 +20,9 @@ namespace FitnessFrog.Core.Domain
         #region "constructors"
 
         /// <summary>
-        /// Default constructor for an Exercise
+        /// Default constructor for a Note.
         /// </summary>
-        
-        public Exercise()
+        public Note()
         {
             Initialize();
         }
@@ -30,46 +30,36 @@ namespace FitnessFrog.Core.Domain
         #endregion
 
         #region "public properties"
-
         /// <summary>
-        /// Gets or sets the Id of Exercise.
+        /// Gets or sets the Id of the Note.
         /// </summary>
-        public int ExerciseId { get; set; }
+        public int NoteId { get; set; }
         /// <summary>
-        /// Gets or sets the Type of Exercise.
+        /// Gets or sets the date and time of the Note.
         /// </summary>
-        public string ExerciseType { get; set; }
+        public DateTime NoteDate { get; set; }
         /// <summary>
-        /// Gets or sets the number of Sets performed for Exercise.
+        /// Gets or sets the text of the Note.
         /// </summary>
-        public int Sets { get; set; }
+        public string NoteText { get; set; }
         /// <summary>
-        /// Gets or sets the number of Reps performed for Exercise.
+        /// Gets or sets the type of note (Food/Exercise).
         /// </summary>
-        public int Reps { get; set; }
+        public string NoteType { get; set; }
         /// <summary>
-        /// Gets or sets the Weight used for Exercise.
+        /// Gets or sets the Id related to NoteType (FoodId/ExerciseId).
         /// </summary>
-        public bool Weight { get; set; }
-        /// <summary>
-        /// Gets or sets the unit of weight used for Exercise.
-        /// kg or lbs.
-        /// </summary>
-        public string UnitType { get; set; }
-        /// <summary>
-        /// Gets or sets a collection of Exercise Notes.
-        /// </summary>
-        public ICollection<Note> Notes { get; set; }
+        public string NoteTypeId { get; set; }
         /// <summary>
         /// Gets or sets the Id of the User.
         /// </summary>
         public int UserId { get; set; }
         /// <summary>
-        /// Gets or sets the date and time the Exercise was created.
+        /// Gets or sets the date and time the User was created.
         /// </summary>
         public DateTime CreationDate { get; set; }
         /// <summary>
-        /// Gets or sets the date and time the Exercise was last modified.
+        /// Gets or sets the date and time the User was last modified.
         /// </summary>
         public DateTime ModificationDate { get; set; }
 
@@ -89,5 +79,6 @@ namespace FitnessFrog.Core.Domain
         }
 
         #endregion
+
     }
 }

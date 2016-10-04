@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace FitnessFrog.Core.Domain
 {
     /// <summary>
-    /// Defines all members of a FitnessFrog user.
+    /// Defines all members of a FitnessFrog User.
     /// </summary>
     public class User
     {
