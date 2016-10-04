@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FitnessFrog.Core
+namespace FitnessFrog.Core.Domain
 {
     public class Food
     {

@@ -3,13 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace FitnessFrog.Core
+namespace FitnessFrog.Core.Domain
 {
     /// <summary>
     /// Defines all members of a FitnessFrog user.
     /// </summary>
     public class User
     {
+
+        #region "private member"
+
+        // None.
+
+        #endregion
+
+
+        #region "constructors"
+
+        /// <summary>
+        /// Default constructor for a User.
+        /// </summary>
+        public User()
+        {
+            this.Initialize();
+        }
+
+        #endregion
+
+
+        #region "public properties"
+
         /// <summary>
         /// Gets or sets the Id of the User.
         /// </summary>
@@ -58,5 +81,25 @@ namespace FitnessFrog.Core
         /// Gets or sets whether or not the User is enabled and can log in.
         /// </summary>
         public bool Enabled { get; set; }
+
+        #endregion
+
+
+        #region "public methods"
+
+        // None
+
+        #endregion
+
+
+        #region "private helper methods"
+
+        private void Initialize()
+        {
+            // Nothing to initialize.
+        }
+
+        #endregion
+
     }
 }
