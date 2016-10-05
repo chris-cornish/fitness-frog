@@ -31,26 +31,6 @@ namespace FitnessFrog.Core.Domain.Data
             this.Initialize(ref entityBuilder);
         }
 
-        public UserEntityConfig(EntityTypeBuilder<Day> entityBuilder)
-        {
-            this.Initialize(ref entityBuilder);
-        }
-
-        public UserEntityConfig(EntityTypeBuilder<Exercise> entityBuilder)
-        {
-            this.Initialize(ref entityBuilder);
-        }
-
-        public UserEntityConfig(EntityTypeBuilder<Food> entityBuilder)
-        {
-            this.Initialize(ref entityBuilder);
-        }
-
-        public UserEntityConfig(EntityTypeBuilder<Note> entityBuilder)
-        {
-            this.Initialize(ref entityBuilder);
-        }
-
         #endregion
 
 
@@ -144,23 +124,7 @@ namespace FitnessFrog.Core.Domain.Data
                 .HasColumnName("Enabled");
 
         }
-        private void Initialize(ref EntityTypeBuilder<Day> entityBuilder)
-        {
-            throw new NotImplementedException();
-        }
-        private void Initialize(ref EntityTypeBuilder<Exercise> entityBuilder)
-        {
-            throw new NotImplementedException();
-        }
-        private void Initialize(ref EntityTypeBuilder<Food> entityBuilder)
-        {
-            throw new NotImplementedException();
-        }
-        private void Initialize(ref EntityTypeBuilder<Note> entityBuilder)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         #endregion
 
     }

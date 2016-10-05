@@ -44,10 +44,10 @@ namespace FitnessFrog.Core.Domain.Data
 
             // Add the models with the Fluent API configurations defined.
             new UserEntityConfig(modelBuilder.Entity<User>());
-            new UserEntityConfig(modelBuilder.Entity<Day>());
-            new UserEntityConfig(modelBuilder.Entity<Exercise>());
-            new UserEntityConfig(modelBuilder.Entity<Food>());
-            new UserEntityConfig(modelBuilder.Entity<Note>());
+            new DayEntityConfig(modelBuilder.Entity<Day>());
+            new ExerciseEntityConfig(modelBuilder.Entity<Exercise>());
+            new FoodEntityConfig(modelBuilder.Entity<Food>());
+            new NoteEntityConfig(modelBuilder.Entity<Note>());
 
             // TODO: Add the remaining configurations.
         }
