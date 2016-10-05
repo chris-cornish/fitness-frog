@@ -52,7 +52,10 @@ namespace FitnessFrog.Core.Domain.Data
 
         private void Initialize(ref EntityTypeBuilder<Exercise> entityBuilder)
         {
-            
+
+            // Define the table name and schema apart from default conventions.
+            entityBuilder.ToTable(TableName, "FitnessFrog");
+
             // Define primary key apart from default conventions.
             entityBuilder.HasKey(x => x.UserId);
 
