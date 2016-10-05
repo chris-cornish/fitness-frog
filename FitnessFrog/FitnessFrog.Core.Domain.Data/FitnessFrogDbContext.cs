@@ -15,6 +15,25 @@ namespace FitnessFrog.Core.Domain.Data
         /// Collection of Users queryable with Linq.
         /// </summary>
         public DbSet<User> Users { get; set; }
+        /// <summary>
+        /// Collection of Days queryable with Linq.
+        /// </summary>
+        public DbSet<Day> Days { get; set; }
+        /// <summary>
+        /// Collection of Exercises queryable with Linq.
+        /// </summary>
+        public DbSet<Exercise> Exercises { get; set; }
+        /// <summary>
+        /// Collection of Foods queryable with Linq.
+        /// </summary>
+        public DbSet<Food> Foods { get; set; }
+        /// <summary>
+        /// Collection of Notes queryable with Linq.
+        /// </summary>
+        public DbSet<Note> Notes { get; set; }
+        /// <summary>
+        /// Collection of Users queryable with Linq.
+        /// </summary>
 
         // TODO: Add the remaining DbSets for each model.
 
