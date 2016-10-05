@@ -49,6 +49,55 @@ namespace FitnessFrog.Core.Domain.Data
 
 
         #region "private helper methods"
+
+        private void Initialize(ref EntityTypeBuilder<Note> entityBuilder)
+        {
+
+            // Define the table name and schema apart from default conventions.
+            entityBuilder.ToTable(TableName, "FitnessFrog");
+
+            // Define primary key apart from default conventions.
+            entityBuilder.HasKey(x => x.UserId);
+
+            // Define relationships and scope on appropriate key(s) apart from default conventions.
+            /// None
+
+            // Define data column names and constraints map to properties apart from default conventions.
+            entityBuilder.Property(a => a.UserId)
+                .HasColumnName("UserId")
+                .IsRequired();
+
+            entityBuilder.Property(a => a.NoteId)
+                .HasColumnName("NoteId")
+                .IsRequired();
+
+            entityBuilder.Property(a => a.NoteDate)
+                .HasColumnName("NoteDate")
+                .HasDefaultValue(DateTime.Now);
+
+            entityBuilder.Property(a => a.NoteType)
+                .HasColumnName("NoteType")
+                .IsRequired();
+
+            entityBuilder.Property(a => a.NoteTypeId)
+                .HasColumnName("NoteTypeId")
+                .IsRequired();
+
+            entityBuilder.Property(a => a.NoteText)
+                .HasColumnName("Note")
+                .IsRequired();
+
+            entityBuilder.Property(a => a.CreationDate)
+                .HasColumnName("CreationDate")
+                .HasDefaultValue(DateTime.Now);
+
+            entityBuilder.Property(a => a.ModificationDate)
+                .HasColumnName("ModificationDate")
+                .HasDefaultValue(DateTime.Now);
+
+        }
+
+
         #endregion
 
     }
