@@ -11,7 +11,7 @@ namespace FitnessFrog.Core.Domain
     public class User
     {
 
-        #region "private member"
+        #region "private members"
 
         // None.
 
@@ -81,6 +81,14 @@ namespace FitnessFrog.Core.Domain
         /// Gets or sets whether or not the User is enabled and can log in.
         /// </summary>
         public bool Enabled { get; set; }
+        /// <summary>
+        /// Gets or sets a collection of days tracked by the User.
+        /// </summary>
+        public ICollection<Day> Days { get; set; }
+        /// <summary>
+        /// Gets or sets a collection of notes added by the User across foods and exercises.
+        /// </summary>
+        public ICollection<Note> Notes { get; set; }
 
         #endregion
 

@@ -11,11 +11,12 @@ namespace FitnessFrog.Core.Domain
     public class Day
     {
 
-        #region "private member"
+        #region "private members"
 
         // None.
 
         #endregion
+
 
         #region "constructors"
 
@@ -28,6 +29,7 @@ namespace FitnessFrog.Core.Domain
         }
 
         #endregion
+
 
         #region "public properties"
         
@@ -62,11 +64,13 @@ namespace FitnessFrog.Core.Domain
 
         #endregion
 
+
         #region "public methods"
 
         // None
 
         #endregion
+
 
         #region "private helper methods"
 
@@ -76,5 +80,6 @@ namespace FitnessFrog.Core.Domain
         }
 
         #endregion
+
     }
 }

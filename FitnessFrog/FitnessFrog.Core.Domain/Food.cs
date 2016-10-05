@@ -11,11 +11,12 @@ namespace FitnessFrog.Core.Domain
     public class Food
     {
 
-        #region "private member"
+        #region "private members"
 
         // None.
 
         #endregion
+
 
         #region "constructors"
 
@@ -28,6 +29,7 @@ namespace FitnessFrog.Core.Domain
         }
 
         #endregion
+
 
         #region "public methods"
 
@@ -74,11 +76,13 @@ namespace FitnessFrog.Core.Domain
 
         #endregion
 
+
         #region "public methods"
 
         // None
 
         #endregion
+
 
         #region "private helper methods"
 
@@ -88,5 +92,6 @@ namespace FitnessFrog.Core.Domain
         }
 
         #endregion
+
     }
 }

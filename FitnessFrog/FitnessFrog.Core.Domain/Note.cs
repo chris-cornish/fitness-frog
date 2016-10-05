@@ -11,11 +11,12 @@ namespace FitnessFrog.Core.Domain
     public class Note
     {
 
-        #region "private member"
+        #region "private members"
 
         // None.
 
         #endregion
+
 
         #region "constructors"
 
@@ -29,7 +30,9 @@ namespace FitnessFrog.Core.Domain
 
         #endregion
 
+
         #region "public properties"
+
         /// <summary>
         /// Gets or sets the Id of the Note.
         /// </summary>
@@ -65,11 +68,13 @@ namespace FitnessFrog.Core.Domain
 
         #endregion
 
+
         #region "public methods"
 
         // None
 
         #endregion
+
 
         #region "private helper methods"
 
