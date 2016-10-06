@@ -11,6 +11,8 @@ namespace FitnessFrog.Core.Domain.Data
     /// </summary>
     public class FitnessFrogDbContext : DbContext
     {
+        #region "dbsets"
+
         /// <summary>
         /// Collection of Users queryable with Linq.
         /// </summary>
@@ -31,11 +33,11 @@ namespace FitnessFrog.Core.Domain.Data
         /// Collection of Notes queryable with Linq.
         /// </summary>
         public DbSet<Note> Notes { get; set; }
-        /// <summary>
-        /// Collection of Users queryable with Linq.
-        /// </summary>
 
-        // TODO: Add the remaining DbSets for each model.
+        #endregion
+
+
+        #region "protected overrides"
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -48,9 +50,9 @@ namespace FitnessFrog.Core.Domain.Data
             new ExerciseEntityConfig(modelBuilder.Entity<Exercise>());
             new FoodEntityConfig(modelBuilder.Entity<Food>());
             new NoteEntityConfig(modelBuilder.Entity<Note>());
-
-            // TODO: Add the remaining configurations.
         }
+
+        #endregion
 
     }
 }

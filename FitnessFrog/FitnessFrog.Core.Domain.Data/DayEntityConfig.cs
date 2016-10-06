@@ -33,6 +33,7 @@ namespace FitnessFrog.Core.Domain.Data
 
         #endregion
 
+
         #region "public properties"
 
         /// <summary>
@@ -59,13 +60,11 @@ namespace FitnessFrog.Core.Domain.Data
             entityBuilder.HasKey(x => x.DayId);
 
             // Define relationships and scope on appropriate key(s) apart from default conventions.
-            entityBuilder.HasMany<Exercise>(o => o.Exercises).WithOne().HasForeignKey(o => o.UserId);
-            entityBuilder.HasMany<Food>(o => o.Foods).WithOne().HasForeignKey(o => o.UserId);
+            entityBuilder.HasOne(o => o.User).WithMany().HasForeignKey(o => o.UserId);
+            entityBuilder.HasMany<Exercise>(o => o.Exercises).WithOne().HasForeignKey(o => o.DayId);
+            entityBuilder.HasMany<Food>(o => o.Foods).WithOne().HasForeignKey(o => o.DayId);
 
             // Define data column names and constraints map to properties apart from default conventions.
-            entityBuilder.Property(a => a.UserId)
-                .HasColumnName("UserId")
-                .IsRequired();
 
             entityBuilder.Property(a => a.DayId)
                 .HasColumnName("DayId")
@@ -74,6 +73,10 @@ namespace FitnessFrog.Core.Domain.Data
             entityBuilder.Property(a => a.EntryDate)
                 .HasColumnName("EntryDate")
                 .HasDefaultValue(DateTime.Now);
+
+            entityBuilder.Property(a => a.UserId)
+                .HasColumnName("UserId")
+                .IsRequired();
 
             entityBuilder.Property(a => a.CreationDate)
                 .HasColumnName("CreationDate")

@@ -32,15 +32,14 @@ namespace FitnessFrog.Core.Domain
 
 
         #region "public properties"
-        
+
+        /* NAVIGATION PROPERTIES */
+
         /// <summary>
-        /// Gets or sets the Id of the Day.
+        /// Gets the User identified by the UserId to which the Exercise belongs. This is
+        /// for deep reference only. Assign UserId to change.
         /// </summary>
-        public int DayId { get; set; }
-        /// <summary>
-        /// Gets or sets the date and time of entry.
-        /// </summary>
-        public DateTime EntryDate { get; set; }
+        public User User { get; set; }
         /// <summary>
         /// Gets or sets a collection of Exercises performed that Day.
         /// </summary>
@@ -49,6 +48,17 @@ namespace FitnessFrog.Core.Domain
         /// Gets or sets a collection of Food eaten that Day.
         /// </summary>
         public ICollection<Food> Foods { get; set; }
+
+        /* STANDARD PROPERTIES  */
+
+        /// <summary>
+        /// Gets or sets the Id of the Day.
+        /// </summary>
+        public int DayId { get; set; }
+        /// <summary>
+        /// Gets or sets the date and time of entry.
+        /// </summary>
+        public DateTime EntryDate { get; set; }
         /// <summary>
         /// Gets or sets the Id of the User.
         /// </summary>

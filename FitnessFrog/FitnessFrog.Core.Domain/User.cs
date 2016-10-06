@@ -33,6 +33,19 @@ namespace FitnessFrog.Core.Domain
 
         #region "public properties"
 
+        /* NAVIGATION PROPERTIES */
+
+        /// <summary>
+        /// Gets or sets a collection of days tracked by the User.
+        /// </summary>
+        public ICollection<Day> Days { get; set; }
+        /// <summary>
+        /// Gets or sets a collection of notes added by the User across foods and exercises.
+        /// </summary>
+        public ICollection<Note> Notes { get; set; }
+
+        /* STANDARD PROPERTIES */
+
         /// <summary>
         /// Gets or sets the Id of the User.
         /// </summary>
@@ -81,14 +94,6 @@ namespace FitnessFrog.Core.Domain
         /// Gets or sets whether or not the User is enabled and can log in.
         /// </summary>
         public bool Enabled { get; set; }
-        /// <summary>
-        /// Gets or sets a collection of days tracked by the User.
-        /// </summary>
-        public ICollection<Day> Days { get; set; }
-        /// <summary>
-        /// Gets or sets a collection of notes added by the User across foods and exercises.
-        /// </summary>
-        public ICollection<Note> Notes { get; set; }
 
         #endregion
 

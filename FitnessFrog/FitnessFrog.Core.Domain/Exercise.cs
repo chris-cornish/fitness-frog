@@ -34,10 +34,29 @@ namespace FitnessFrog.Core.Domain
 
         #region "public properties"
 
+        /* NAVIGATION PROPERTIES */
+
+        /// <summary>
+        /// Gets the Day identified by the DayId to which the Exercise belongs. This is
+        /// for deep reference only. Assign DayId to change.
+        /// </summary>
+        public Day Day { get; set; }
+        /// <summary>
+        /// Gets the User identified by the UserId to which the Exercise belongs. This is
+        /// for deep reference only. Assign UserId to change.
+        /// </summary>
+        public User User { get; set; }
+
+        /* STANDARD PROPERTIES */
+
         /// <summary>
         /// Gets or sets the Id of Exercise.
         /// </summary>
         public int ExerciseId { get; set; }
+        /// <summary>
+        /// Gets or sets the Id of Day to which the Exercise belongs.
+        /// </summary>
+        public int DayId { get; set; }
         /// <summary>
         /// Gets or sets the Type of Exercise.
         /// </summary>
@@ -59,10 +78,6 @@ namespace FitnessFrog.Core.Domain
         /// kg or lbs.
         /// </summary>
         public string UnitType { get; set; }
-        /// <summary>
-        /// Gets or sets a collection of Exercise Notes.
-        /// </summary>
-        public ICollection<Note> Notes { get; set; }
         /// <summary>
         /// Gets or sets the Id of the User.
         /// </summary>

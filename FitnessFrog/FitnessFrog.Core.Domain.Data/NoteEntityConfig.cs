@@ -57,15 +57,12 @@ namespace FitnessFrog.Core.Domain.Data
             entityBuilder.ToTable(TableName, "FitnessFrog");
 
             // Define primary key apart from default conventions.
-            entityBuilder.HasKey(x => x.UserId);
+            entityBuilder.HasKey(x => x.NoteId);
 
             // Define relationships and scope on appropriate key(s) apart from default conventions.
-            /// None
+            entityBuilder.HasOne(o => o.User).WithMany().HasForeignKey(o => o.UserId);
 
             // Define data column names and constraints map to properties apart from default conventions.
-            entityBuilder.Property(a => a.UserId)
-                .HasColumnName("UserId")
-                .IsRequired();
 
             entityBuilder.Property(a => a.NoteId)
                 .HasColumnName("NoteId")
@@ -75,16 +72,22 @@ namespace FitnessFrog.Core.Domain.Data
                 .HasColumnName("NoteDate")
                 .HasDefaultValue(DateTime.Now);
 
+            entityBuilder.Property(a => a.NoteText)
+                .HasColumnName("NoteText")
+                .HasMaxLength(4096)
+                .IsRequired();
+
             entityBuilder.Property(a => a.NoteType)
                 .HasColumnName("NoteType")
+                .HasMaxLength(64)
                 .IsRequired();
 
             entityBuilder.Property(a => a.NoteTypeId)
                 .HasColumnName("NoteTypeId")
                 .IsRequired();
 
-            entityBuilder.Property(a => a.NoteText)
-                .HasColumnName("Note")
+            entityBuilder.Property(a => a.UserId)
+                .HasColumnName("UserId")
                 .IsRequired();
 
             entityBuilder.Property(a => a.CreationDate)

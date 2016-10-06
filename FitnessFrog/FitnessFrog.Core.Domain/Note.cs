@@ -33,6 +33,16 @@ namespace FitnessFrog.Core.Domain
 
         #region "public properties"
 
+        /* NAVIGATION PROPERTIES */
+
+        /// <summary>
+        /// Gets the User identified by the UserId to which the Exercise belongs. This is
+        /// for deep reference only. Assign UserId to change.
+        /// </summary>
+        public User User { get; set; }
+
+        /* STANDARD PROPERTIES */
+
         /// <summary>
         /// Gets or sets the Id of the Note.
         /// </summary>
