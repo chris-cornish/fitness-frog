@@ -73,6 +73,7 @@ namespace FitnessFrog.Core.Domain
         /// </summary>
         public static class NoteTypes
         {
+            public const string Standard = "Standard";
             public const string Exercise = "Exercise";
             public const string Food = "Food";
         }
