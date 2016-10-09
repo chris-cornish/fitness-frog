@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using FitnessFrog.Core.Domain;
+using FitnessFrog.Core.Domain.Data;
 
 namespace FitnessFrog.Core.UI
 {
@@ -36,6 +39,10 @@ namespace FitnessFrog.Core.UI
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
+            // TODO: Get connection string and provider from config file.
+            string connection = Configuration.GetConnectionString("FitnessFrogDb");
+            services.AddDbContext<FitnessFrogDbContext>(options => options.UseSqlServer(connection));
+            
             services.AddMvc();
         }
 

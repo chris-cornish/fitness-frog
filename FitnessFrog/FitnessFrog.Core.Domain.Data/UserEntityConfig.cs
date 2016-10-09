@@ -73,8 +73,9 @@ namespace FitnessFrog.Core.Domain.Data
             entityBuilder.HasKey(x => x.UserId);
 
             // Define relationships and scope on appropriate key(s) apart from default conventions.
-            entityBuilder.HasMany<Day>(o => o.Days).WithOne().HasForeignKey(o => o.UserId);
-            entityBuilder.HasMany<Note>(o => o.Notes).WithOne().HasForeignKey(o => o.UserId);
+            entityBuilder.HasMany(o => o.Days).WithOne(o => o.User).HasPrincipalKey(o => o.UserId).HasForeignKey(o => o.UserId).OnDelete(Microsoft.EntityFrameworkCore.Metadata.DeleteBehavior.Cascade);
+            entityBuilder.HasMany(o => o.Notes).WithOne(o => o.User).HasPrincipalKey(o => o.UserId).HasForeignKey(o => o.UserId).OnDelete(Microsoft.EntityFrameworkCore.Metadata.DeleteBehavior.Cascade);
+
 
             // Define data column names and constraints map to properties apart from default conventions.
             entityBuilder.Property(a => a.UserId)

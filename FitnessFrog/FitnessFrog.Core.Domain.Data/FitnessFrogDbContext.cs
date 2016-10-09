@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 
 namespace FitnessFrog.Core.Domain.Data
@@ -11,6 +12,22 @@ namespace FitnessFrog.Core.Domain.Data
     /// </summary>
     public class FitnessFrogDbContext : DbContext
     {
+        #region "constructors"
+
+        public FitnessFrogDbContext()
+            : base()
+        {
+
+        }
+
+        public FitnessFrogDbContext(DbContextOptions options)
+            : base(options)
+        {
+
+        }
+
+        #endregion
+
         #region "dbsets"
 
         /// <summary>
@@ -50,6 +67,19 @@ namespace FitnessFrog.Core.Domain.Data
             new ExerciseEntityConfig(modelBuilder.Entity<Exercise>());
             new FoodEntityConfig(modelBuilder.Entity<Food>());
             new NoteEntityConfig(modelBuilder.Entity<Note>());
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+
+            // TODO: Pull connection string from some type of localized, development environment config for sake of creating new migrations only.
+            // Application of migrations and data access will be established in the referencing app's startup.cs file's ConfigureServices method.
+            // But, since MS has changed how configuration works, and there is no app.config file even for library only projects, we have to creae
+            // a new option here so as not to hardcode like below.
+            string conn = @"Data Source=SCLAYTURNER809A\SQLEXPRESS;Initial Catalog=FitnessFrogDb;Integrated Security=True;MultipleActiveResultSets=true";
+            optionsBuilder.UseSqlServer(conn);
+
+            base.OnConfiguring(optionsBuilder);
         }
 
         #endregion
