@@ -19,12 +19,12 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                 {
                     UserId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 884, DateTimeKind.Local)),
+                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 10, 3, 3, 210, DateTimeKind.Local)),
                     EmailAddress = table.Column<string>(maxLength: 128, nullable: false),
                     Enabled = table.Column<bool>(nullable: false),
-                    LastLoginDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 900, DateTimeKind.Local)),
+                    LastLoginDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 10, 3, 3, 217, DateTimeKind.Local)),
                     LastLoginIp = table.Column<string>(maxLength: 32, nullable: true),
-                    ModificationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 900, DateTimeKind.Local)),
+                    ModificationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 10, 3, 3, 217, DateTimeKind.Local)),
                     Name = table.Column<string>(maxLength: 64, nullable: false),
                     Password = table.Column<string>(maxLength: 256, nullable: false),
                     PasswordRecoveryAnswer = table.Column<string>(maxLength: 64, nullable: true),
@@ -42,10 +42,11 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                 {
                     DayId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 915, DateTimeKind.Local)),
-                    EntryDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 915, DateTimeKind.Local)),
-                    ModificationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 915, DateTimeKind.Local)),
-                    UserId = table.Column<int>(nullable: false)
+                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 10, 3, 3, 235, DateTimeKind.Local)),
+                    EntryDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 10, 3, 3, 235, DateTimeKind.Local)),
+                    ModificationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 10, 3, 3, 235, DateTimeKind.Local)),
+                    UserId = table.Column<int>(nullable: false),
+                    UserId1 = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -53,6 +54,13 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                     table.ForeignKey(
                         name: "FK_Days_Users_UserId",
                         column: x => x.UserId,
+                        principalSchema: "FitnessFrog",
+                        principalTable: "Users",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Days_Users_UserId1",
+                        column: x => x.UserId1,
                         principalSchema: "FitnessFrog",
                         principalTable: "Users",
                         principalColumn: "UserId",
@@ -66,13 +74,14 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                 {
                     NoteId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 947, DateTimeKind.Local)),
-                    ModificationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 947, DateTimeKind.Local)),
-                    NoteDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 947, DateTimeKind.Local)),
+                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 10, 3, 3, 262, DateTimeKind.Local)),
+                    ModificationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 10, 3, 3, 262, DateTimeKind.Local)),
+                    NoteDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 10, 3, 3, 262, DateTimeKind.Local)),
                     NoteText = table.Column<string>(maxLength: 4096, nullable: false),
                     NoteType = table.Column<string>(maxLength: 64, nullable: false),
                     NoteTypeId = table.Column<int>(nullable: false),
-                    UserId = table.Column<int>(nullable: false)
+                    UserId = table.Column<int>(nullable: false),
+                    UserId1 = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -80,6 +89,13 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                     table.ForeignKey(
                         name: "FK_Notes_Users_UserId",
                         column: x => x.UserId,
+                        principalSchema: "FitnessFrog",
+                        principalTable: "Users",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Notes_Users_UserId1",
+                        column: x => x.UserId1,
                         principalSchema: "FitnessFrog",
                         principalTable: "Users",
                         principalColumn: "UserId",
@@ -93,10 +109,11 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                 {
                     ExerciseId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 931, DateTimeKind.Local)),
+                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 10, 3, 3, 245, DateTimeKind.Local)),
                     DayId = table.Column<int>(nullable: false),
+                    DayId1 = table.Column<int>(nullable: true),
                     ExerciseType = table.Column<string>(maxLength: 64, nullable: false),
-                    ModificationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 931, DateTimeKind.Local)),
+                    ModificationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 10, 3, 3, 245, DateTimeKind.Local)),
                     Reps = table.Column<int>(nullable: false),
                     Sets = table.Column<int>(nullable: false),
                     UnitType = table.Column<string>(maxLength: 64, nullable: false),
@@ -109,6 +126,13 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                     table.ForeignKey(
                         name: "FK_Exercises_Days_DayId",
                         column: x => x.DayId,
+                        principalSchema: "FitnessFrog",
+                        principalTable: "Days",
+                        principalColumn: "DayId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Exercises_Days_DayId1",
+                        column: x => x.DayId1,
                         principalSchema: "FitnessFrog",
                         principalTable: "Days",
                         principalColumn: "DayId",
@@ -131,10 +155,11 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Calories = table.Column<int>(nullable: false),
                     Carbs = table.Column<int>(nullable: false),
-                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 931, DateTimeKind.Local)),
+                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 10, 3, 3, 255, DateTimeKind.Local)),
                     DayId = table.Column<int>(nullable: false),
+                    DayId1 = table.Column<int>(nullable: true),
                     Fats = table.Column<int>(nullable: false),
-                    ModificationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 931, DateTimeKind.Local)),
+                    ModificationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 10, 3, 3, 255, DateTimeKind.Local)),
                     Name = table.Column<string>(maxLength: 64, nullable: false),
                     Proteins = table.Column<int>(nullable: false),
                     UserId = table.Column<int>(nullable: false)
@@ -145,6 +170,13 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                     table.ForeignKey(
                         name: "FK_Foods_Days_DayId",
                         column: x => x.DayId,
+                        principalSchema: "FitnessFrog",
+                        principalTable: "Days",
+                        principalColumn: "DayId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Foods_Days_DayId1",
+                        column: x => x.DayId1,
                         principalSchema: "FitnessFrog",
                         principalTable: "Days",
                         principalColumn: "DayId",
@@ -165,10 +197,22 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Days_UserId1",
+                schema: "FitnessFrog",
+                table: "Days",
+                column: "UserId1");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Exercises_DayId",
                 schema: "FitnessFrog",
                 table: "Exercises",
                 column: "DayId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Exercises_DayId1",
+                schema: "FitnessFrog",
+                table: "Exercises",
+                column: "DayId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Exercises_UserId",
@@ -183,6 +227,12 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                 column: "DayId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Foods_DayId1",
+                schema: "FitnessFrog",
+                table: "Foods",
+                column: "DayId1");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Foods_UserId",
                 schema: "FitnessFrog",
                 table: "Foods",
@@ -193,6 +243,12 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                 schema: "FitnessFrog",
                 table: "Notes",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Notes_UserId1",
+                schema: "FitnessFrog",
+                table: "Notes",
+                column: "UserId1");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
