@@ -12,6 +12,8 @@ Likewise, it allows Fitness-Frog to run in multiple environments (Windows, Linux
 ## Other Packages
 * Microsoft.EntityFrameworkCore.Tools (Nuget)
 * Microsoft.EntityFrameworkCore.SqlServer (Nuget)
+* Microsoft.VisualStudio.Web.CodeGenerators.Tools (Nuget - UI Project Only)
+* Microsoft.VisualStudio.Web.CodeGenerators.Mvc (Nuget - UI Project Only)
 
 Note:
 The above packages should restore automatically on build.
@@ -29,6 +31,12 @@ delete the Program.cs file, which essentially turns it back into a class library
 framework and can subsequently have EntityFrameworkCore.Tools and EntityFramework.SqlServer referenced within,
 and that can be referenced within the UI project with intellisence on members.  In other words, the environment
 is setup, but all this new stuff is not 100% documented yet for 1st-Time users.
+
+## Scaffolding
+There is a bug in scaffolding currently when the model is referenced in an outside assembly, i.e. the way
+we are doing it and the way it should be done. the .NET Core team is working on a fix. In the near term, the
+only suggested workaround is to temporarily include the model in the UI project, which is not very practical.
+* https://github.com/aspnet/Scaffolding/issues/251
 
 ## Helpful Documentation
 * http://localhost:49865/ (When you run the FitnessFrog.Core.UI)
