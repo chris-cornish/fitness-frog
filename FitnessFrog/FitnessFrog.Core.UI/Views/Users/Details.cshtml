@@ -1,0 +1,78 @@
+@model FitnessFrog.Core.Domain.User
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Enabled)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Enabled)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastLoginDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastLoginDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastLoginIp)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastLoginIp)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ModificationDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ModificationDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PasswordRecoveryAnswer)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PasswordRecoveryAnswer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PasswordRecoveryQuestion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PasswordRecoveryQuestion)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.UserId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

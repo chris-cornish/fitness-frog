@@ -1,0 +1,65 @@
+@model IEnumerable<FitnessFrog.Core.Domain.Note>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CreationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModificationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoteDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoteText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoteType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoteTypeId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModificationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoteDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoteText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoteType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoteTypeId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.NoteId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.NoteId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.NoteId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

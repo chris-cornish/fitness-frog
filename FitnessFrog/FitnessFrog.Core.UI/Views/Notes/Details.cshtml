@@ -1,0 +1,54 @@
+@model FitnessFrog.Core.Domain.Note
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Note</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ModificationDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ModificationDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NoteDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NoteDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NoteText)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NoteText)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NoteType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NoteType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NoteTypeId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NoteTypeId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.NoteId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

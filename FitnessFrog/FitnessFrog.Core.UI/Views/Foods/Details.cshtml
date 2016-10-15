@@ -1,0 +1,60 @@
+@model FitnessFrog.Core.Domain.Food
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Food</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Calories)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Calories)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Carbs)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Carbs)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Fats)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Fats)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ModificationDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ModificationDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Proteins)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Proteins)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.FoodId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

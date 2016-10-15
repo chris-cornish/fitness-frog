@@ -34,9 +34,28 @@ is setup, but all this new stuff is not 100% documented yet for 1st-Time users.
 
 ## Scaffolding
 There is a bug in scaffolding currently when the model is referenced in an outside assembly, i.e. the way
-we are doing it and the way it should be done. the .NET Core team is working on a fix. In the near term, the
-only suggested workaround is to temporarily include the model in the UI project, which is not very practical.
+we are doing it and the way it should be done. This was supposedly fixed in the preview1-update2, September
+release, but I can confirm that it is NOT and will recommend they re-open the issue. In the near term, the
+only suggested workaround is to temporarily include the contents of Domain and Domain.Data in the UI project,
+create the scaffolds, and then remove the contents again.
+
+Here is the tracked issue:
 * https://github.com/aspnet/Scaffolding/issues/251
+
+Here are the steps I used to get around the issue:
+* I "unreferenced" FitnessFrog.Core.Domain and FitnessFrog.Core.Domain.Data.
+* I created a folder in the UI project called "Workaround."
+* I copied all of the .cs files from FitnessFrog.Core.Domain and .Data to the "Workaround" folder.
+* I right clicked on the "Controllers" folder and chose Add "New Scaffolded Item."
+* I selected "MVC Controller with Views Using Entity Framework."
+* I selected my domain entity.
+* I selected the DbContext.
+* I left the default checkboxes for setting up the Views.
+* I created my scaffold.
+* I repeated for each domain model.
+* I deleted the "Workaround" folder.
+* I "re-referenced" FitnessFrog.Core.Domain and FitnessFrog.Core.Domain.Data.
+* All was well.
 
 ## Helpful Documentation
 * http://localhost:49865/ (When you run the FitnessFrog.Core.UI)

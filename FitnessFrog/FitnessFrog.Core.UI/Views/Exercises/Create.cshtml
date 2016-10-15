@@ -1,0 +1,89 @@
+@model FitnessFrog.Core.Domain.Exercise
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Exercise</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="CreationDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="CreationDate" class="form-control" />
+                <span asp-validation-for="CreationDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="DayId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="DayId" class ="form-control" asp-items="ViewBag.DayId"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ExerciseType" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ExerciseType" class="form-control" />
+                <span asp-validation-for="ExerciseType" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ModificationDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ModificationDate" class="form-control" />
+                <span asp-validation-for="ModificationDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Reps" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Reps" class="form-control" />
+                <span asp-validation-for="Reps" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Sets" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Sets" class="form-control" />
+                <span asp-validation-for="Sets" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="UnitType" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="UnitType" class="form-control" />
+                <span asp-validation-for="UnitType" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="UserId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Weight" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

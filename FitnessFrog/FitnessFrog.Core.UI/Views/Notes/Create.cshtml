@@ -1,0 +1,76 @@
+@model FitnessFrog.Core.Domain.Note
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Note</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="CreationDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="CreationDate" class="form-control" />
+                <span asp-validation-for="CreationDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="ModificationDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="ModificationDate" class="form-control" />
+                <span asp-validation-for="ModificationDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="NoteDate" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="NoteDate" class="form-control" />
+                <span asp-validation-for="NoteDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="NoteText" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="NoteText" class="form-control" />
+                <span asp-validation-for="NoteText" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="NoteType" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="NoteType" class="form-control" />
+                <span asp-validation-for="NoteType" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="NoteTypeId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="NoteTypeId" class="form-control" />
+                <span asp-validation-for="NoteTypeId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="UserId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
