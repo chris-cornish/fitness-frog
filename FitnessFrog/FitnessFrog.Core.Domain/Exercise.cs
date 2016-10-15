@@ -72,7 +72,7 @@ namespace FitnessFrog.Core.Domain
         /// <summary>
         /// Gets or sets the Weight used for Exercise.
         /// </summary>
-        public bool Weight { get; set; }
+        public int Weight { get; set; }
         /// <summary>
         /// Gets or sets the unit of weight used for Exercise.
         /// kg or lbs.

@@ -17,13 +17,22 @@ namespace FitnessFrog.Core.Domain.Data
         public FitnessFrogDbContext()
             : base()
         {
-
+            this.Database.Migrate();
         }
 
         public FitnessFrogDbContext(DbContextOptions options)
             : base(options)
         {
+            this.Database.Migrate();
+        }
 
+        public FitnessFrogDbContext(DbContextOptions options, bool migrate)
+            : base(options)
+        {
+            if (migrate)
+            {
+                this.Database.Migrate();
+            }
         }
 
         #endregion
@@ -71,14 +80,6 @@ namespace FitnessFrog.Core.Domain.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
-            // TODO: Pull connection string from some type of localized, development environment config for sake of creating new migrations only.
-            // Application of migrations and data access will be established in the referencing app's startup.cs file's ConfigureServices method.
-            // But, since MS has changed how configuration works, and there is no app.config file even for library only projects, we have to creae
-            // a new option here so as not to hardcode like below.
-            string conn = @"Data Source=SCLAYTURNER809A\SQLEXPRESS;Initial Catalog=FitnessFrogDb;Integrated Security=True;MultipleActiveResultSets=true";
-            optionsBuilder.UseSqlServer(conn);
-
             base.OnConfiguring(optionsBuilder);
         }
 

@@ -8,7 +8,7 @@ using FitnessFrog.Core.Domain.Data;
 namespace FitnessFrog.Core.Domain.Data.Migrations
 {
     [DbContext(typeof(FitnessFrogDbContext))]
-    [Migration("20161009041633_InitialDbCreate")]
+    [Migration("20161015112021_InitialDbCreate")]
     partial class InitialDbCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,17 +26,17 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("CreationDate")
-                        .HasDefaultValue(new DateTime(2016, 10, 9, 0, 16, 33, 126, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2016, 10, 15, 7, 20, 9, 915, DateTimeKind.Local));
 
                     b.Property<DateTime>("EntryDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("EntryDate")
-                        .HasDefaultValue(new DateTime(2016, 10, 9, 0, 16, 33, 126, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2016, 10, 15, 7, 20, 9, 915, DateTimeKind.Local));
 
                     b.Property<DateTime>("ModificationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("ModificationDate")
-                        .HasDefaultValue(new DateTime(2016, 10, 9, 0, 16, 33, 126, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2016, 10, 15, 7, 20, 9, 915, DateTimeKind.Local));
 
                     b.Property<int>("UserId")
                         .HasColumnName("UserId");
@@ -61,7 +61,7 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("CreationDate")
-                        .HasDefaultValue(new DateTime(2016, 10, 9, 0, 16, 33, 136, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2016, 10, 15, 7, 20, 9, 931, DateTimeKind.Local));
 
                     b.Property<int>("DayId")
                         .HasColumnName("DayId");
@@ -76,7 +76,7 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                     b.Property<DateTime>("ModificationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("ModificationDate")
-                        .HasDefaultValue(new DateTime(2016, 10, 9, 0, 16, 33, 136, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2016, 10, 15, 7, 20, 9, 931, DateTimeKind.Local));
 
                     b.Property<int>("Reps")
                         .HasColumnName("Reps");
@@ -92,7 +92,7 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                     b.Property<int>("UserId")
                         .HasColumnName("UserId");
 
-                    b.Property<bool>("Weight")
+                    b.Property<int>("Weight")
                         .HasColumnName("Weight");
 
                     b.HasKey("ExerciseId");
@@ -121,7 +121,7 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("CreationDate")
-                        .HasDefaultValue(new DateTime(2016, 10, 9, 0, 16, 33, 146, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2016, 10, 15, 7, 20, 9, 931, DateTimeKind.Local));
 
                     b.Property<int>("DayId")
                         .HasColumnName("DayId");
@@ -134,7 +134,7 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                     b.Property<DateTime>("ModificationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("ModificationDate")
-                        .HasDefaultValue(new DateTime(2016, 10, 9, 0, 16, 33, 146, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2016, 10, 15, 7, 20, 9, 931, DateTimeKind.Local));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -167,17 +167,17 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("CreationDate")
-                        .HasDefaultValue(new DateTime(2016, 10, 9, 0, 16, 33, 152, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2016, 10, 15, 7, 20, 9, 947, DateTimeKind.Local));
 
                     b.Property<DateTime>("ModificationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("ModificationDate")
-                        .HasDefaultValue(new DateTime(2016, 10, 9, 0, 16, 33, 152, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2016, 10, 15, 7, 20, 9, 947, DateTimeKind.Local));
 
                     b.Property<DateTime>("NoteDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("NoteDate")
-                        .HasDefaultValue(new DateTime(2016, 10, 9, 0, 16, 33, 152, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2016, 10, 15, 7, 20, 9, 947, DateTimeKind.Local));
 
                     b.Property<string>("NoteText")
                         .IsRequired()
@@ -189,8 +189,7 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                         .HasColumnName("NoteType")
                         .HasAnnotation("MaxLength", 64);
 
-                    b.Property<string>("NoteTypeId")
-                        .IsRequired()
+                    b.Property<int>("NoteTypeId")
                         .HasColumnName("NoteTypeId");
 
                     b.Property<int>("UserId")
@@ -216,7 +215,7 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("CreationDate")
-                        .HasDefaultValue(new DateTime(2016, 10, 9, 0, 16, 33, 101, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2016, 10, 15, 7, 20, 9, 884, DateTimeKind.Local));
 
                     b.Property<string>("EmailAddress")
                         .IsRequired()
@@ -229,7 +228,7 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                     b.Property<DateTime>("LastLoginDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("LastLoginDate")
-                        .HasDefaultValue(new DateTime(2016, 10, 9, 0, 16, 33, 109, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2016, 10, 15, 7, 20, 9, 900, DateTimeKind.Local));
 
                     b.Property<string>("LastLoginIp")
                         .HasColumnName("LastLoginIp")
@@ -238,7 +237,7 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                     b.Property<DateTime>("ModificationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("ModificationDate")
-                        .HasDefaultValue(new DateTime(2016, 10, 9, 0, 16, 33, 108, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2016, 10, 15, 7, 20, 9, 900, DateTimeKind.Local));
 
                     b.Property<string>("Name")
                         .IsRequired()

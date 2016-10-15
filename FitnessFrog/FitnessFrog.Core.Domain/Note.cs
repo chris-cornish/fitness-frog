@@ -62,7 +62,7 @@ namespace FitnessFrog.Core.Domain
         /// <summary>
         /// Gets or sets the Id related to NoteType (FoodId/ExerciseId).
         /// </summary>
-        public string NoteTypeId { get; set; }
+        public int NoteTypeId { get; set; }
         /// <summary>
         /// Gets or sets the Id of the User.
         /// </summary>

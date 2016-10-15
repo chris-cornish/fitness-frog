@@ -19,12 +19,12 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                 {
                     UserId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 9, 0, 16, 33, 101, DateTimeKind.Local)),
+                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 884, DateTimeKind.Local)),
                     EmailAddress = table.Column<string>(maxLength: 128, nullable: false),
                     Enabled = table.Column<bool>(nullable: false),
-                    LastLoginDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 9, 0, 16, 33, 109, DateTimeKind.Local)),
+                    LastLoginDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 900, DateTimeKind.Local)),
                     LastLoginIp = table.Column<string>(maxLength: 32, nullable: true),
-                    ModificationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 9, 0, 16, 33, 108, DateTimeKind.Local)),
+                    ModificationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 900, DateTimeKind.Local)),
                     Name = table.Column<string>(maxLength: 64, nullable: false),
                     Password = table.Column<string>(maxLength: 256, nullable: false),
                     PasswordRecoveryAnswer = table.Column<string>(maxLength: 64, nullable: true),
@@ -42,9 +42,9 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                 {
                     DayId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 9, 0, 16, 33, 126, DateTimeKind.Local)),
-                    EntryDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 9, 0, 16, 33, 126, DateTimeKind.Local)),
-                    ModificationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 9, 0, 16, 33, 126, DateTimeKind.Local)),
+                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 915, DateTimeKind.Local)),
+                    EntryDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 915, DateTimeKind.Local)),
+                    ModificationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 915, DateTimeKind.Local)),
                     UserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -66,12 +66,12 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                 {
                     NoteId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 9, 0, 16, 33, 152, DateTimeKind.Local)),
-                    ModificationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 9, 0, 16, 33, 152, DateTimeKind.Local)),
-                    NoteDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 9, 0, 16, 33, 152, DateTimeKind.Local)),
+                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 947, DateTimeKind.Local)),
+                    ModificationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 947, DateTimeKind.Local)),
+                    NoteDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 947, DateTimeKind.Local)),
                     NoteText = table.Column<string>(maxLength: 4096, nullable: false),
                     NoteType = table.Column<string>(maxLength: 64, nullable: false),
-                    NoteTypeId = table.Column<string>(nullable: false),
+                    NoteTypeId = table.Column<int>(nullable: false),
                     UserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -93,15 +93,15 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                 {
                     ExerciseId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 9, 0, 16, 33, 136, DateTimeKind.Local)),
+                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 931, DateTimeKind.Local)),
                     DayId = table.Column<int>(nullable: false),
                     ExerciseType = table.Column<string>(maxLength: 64, nullable: false),
-                    ModificationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 9, 0, 16, 33, 136, DateTimeKind.Local)),
+                    ModificationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 931, DateTimeKind.Local)),
                     Reps = table.Column<int>(nullable: false),
                     Sets = table.Column<int>(nullable: false),
                     UnitType = table.Column<string>(maxLength: 64, nullable: false),
                     UserId = table.Column<int>(nullable: false),
-                    Weight = table.Column<bool>(nullable: false)
+                    Weight = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -131,10 +131,10 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Calories = table.Column<int>(nullable: false),
                     Carbs = table.Column<int>(nullable: false),
-                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 9, 0, 16, 33, 146, DateTimeKind.Local)),
+                    CreationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 931, DateTimeKind.Local)),
                     DayId = table.Column<int>(nullable: false),
                     Fats = table.Column<int>(nullable: false),
-                    ModificationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 9, 0, 16, 33, 146, DateTimeKind.Local)),
+                    ModificationDate = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2016, 10, 15, 7, 20, 9, 931, DateTimeKind.Local)),
                     Name = table.Column<string>(maxLength: 64, nullable: false),
                     Proteins = table.Column<int>(nullable: false),
                     UserId = table.Column<int>(nullable: false)
@@ -193,7 +193,6 @@ namespace FitnessFrog.Core.Domain.Data.Migrations
                 schema: "FitnessFrog",
                 table: "Notes",
                 column: "UserId");
-
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
