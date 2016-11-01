@@ -47,7 +47,9 @@ namespace FitnessFrog.Core.UI.Controllers
         public IActionResult Create()
         {
             ViewData["DayId"] = new SelectList(_context.Days, "DayId", "DayId");
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "EmailAddress");
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Name");
+            ViewData["ExerciseType"] = new SelectList(EntityHelper.GetConstants(typeof(EntityHelper.ExerciseTypes)));
+            ViewData["UnitType"] = new SelectList(EntityHelper.GetConstants(typeof(EntityHelper.UnitTypes)));
             return View();
         }
 
@@ -56,8 +58,11 @@ namespace FitnessFrog.Core.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ExerciseId,CreationDate,DayId,ExerciseType,ModificationDate,Reps,Sets,UnitType,UserId,Weight")] Exercise exercise)
+        public async Task<IActionResult> Create([Bind("ExerciseId,DayId,ExerciseType,Reps,Sets,UnitType,UserId,Weight")] Exercise exercise)
         {
+            exercise.CreationDate = DateTime.Now;
+            exercise.ModificationDate = DateTime.Now;
+
             if (ModelState.IsValid)
             {
                 _context.Add(exercise);
@@ -65,7 +70,9 @@ namespace FitnessFrog.Core.UI.Controllers
                 return RedirectToAction("Index");
             }
             ViewData["DayId"] = new SelectList(_context.Days, "DayId", "DayId", exercise.DayId);
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "EmailAddress", exercise.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Name", exercise.UserId);
+            ViewData["ExerciseType"] = new SelectList(EntityHelper.GetConstants(typeof(EntityHelper.ExerciseTypes)), exercise.ExerciseType);
+            ViewData["UnitType"] = new SelectList(EntityHelper.GetConstants(typeof(EntityHelper.UnitTypes)), exercise.UnitType);
             return View(exercise);
         }
 
@@ -83,7 +90,9 @@ namespace FitnessFrog.Core.UI.Controllers
                 return NotFound();
             }
             ViewData["DayId"] = new SelectList(_context.Days, "DayId", "DayId", exercise.DayId);
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "EmailAddress", exercise.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Name", exercise.UserId);
+            ViewData["ExerciseType"] = new SelectList(EntityHelper.GetConstants(typeof(EntityHelper.ExerciseTypes)), exercise.ExerciseType);
+            ViewData["UnitType"] = new SelectList(EntityHelper.GetConstants(typeof(EntityHelper.UnitTypes)), exercise.UnitType);
             return View(exercise);
         }
 
@@ -98,6 +107,8 @@ namespace FitnessFrog.Core.UI.Controllers
             {
                 return NotFound();
             }
+
+            exercise.ModificationDate = DateTime.Now;
 
             if (ModelState.IsValid)
             {
@@ -120,7 +131,9 @@ namespace FitnessFrog.Core.UI.Controllers
                 return RedirectToAction("Index");
             }
             ViewData["DayId"] = new SelectList(_context.Days, "DayId", "DayId", exercise.DayId);
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "EmailAddress", exercise.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Name", exercise.UserId);
+            ViewData["ExerciseType"] = new SelectList(EntityHelper.GetConstants(typeof(EntityHelper.ExerciseTypes)), exercise.ExerciseType);
+            ViewData["UnitType"] = new SelectList(EntityHelper.GetConstants(typeof(EntityHelper.UnitTypes)), exercise.UnitType);
             return View(exercise);
         }
 

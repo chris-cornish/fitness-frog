@@ -47,7 +47,7 @@ namespace FitnessFrog.Core.UI.Controllers
         public IActionResult Create()
         {
             ViewData["DayId"] = new SelectList(_context.Days, "DayId", "DayId");
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "EmailAddress");
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Name");
             return View();
         }
 
@@ -56,8 +56,12 @@ namespace FitnessFrog.Core.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FoodId,Calories,Carbs,CreationDate,DayId,Fats,ModificationDate,Name,Proteins,UserId")] Food food)
+        public async Task<IActionResult> Create([Bind("FoodId,Calories,Carbs,DayId,Fats,Name,Proteins,UserId")] Food food)
         {
+
+            food.CreationDate = DateTime.Now;
+            food.ModificationDate = DateTime.Now;
+
             if (ModelState.IsValid)
             {
                 _context.Add(food);
@@ -65,7 +69,7 @@ namespace FitnessFrog.Core.UI.Controllers
                 return RedirectToAction("Index");
             }
             ViewData["DayId"] = new SelectList(_context.Days, "DayId", "DayId", food.DayId);
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "EmailAddress", food.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Name", food.UserId);
             return View(food);
         }
 
@@ -83,7 +87,7 @@ namespace FitnessFrog.Core.UI.Controllers
                 return NotFound();
             }
             ViewData["DayId"] = new SelectList(_context.Days, "DayId", "DayId", food.DayId);
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "EmailAddress", food.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Name", food.UserId);
             return View(food);
         }
 
@@ -120,7 +124,7 @@ namespace FitnessFrog.Core.UI.Controllers
                 return RedirectToAction("Index");
             }
             ViewData["DayId"] = new SelectList(_context.Days, "DayId", "DayId", food.DayId);
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "EmailAddress", food.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Name", food.UserId);
             return View(food);
         }
 

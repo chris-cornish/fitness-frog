@@ -47,6 +47,7 @@ namespace FitnessFrog.Core.UI.Controllers
         public IActionResult Create()
         {
             ViewData["UserId"] = new SelectList(_context.Users, "UserId", "EmailAddress");
+            ViewData["DayId"] = new SelectList(_context.Days, "DayID", "DayId");
             return View();
         }
 
@@ -55,15 +56,20 @@ namespace FitnessFrog.Core.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DayId,CreationDate,EntryDate,ModificationDate,UserId")] Day day)
+        public async Task<IActionResult> Create([Bind("DayId,UserId")] Day day)
         {
+            day.CreationDate = DateTime.Now;
+            day.ModificationDate = DateTime.Now;
+            day.EntryDate = DateTime.Now;
+
             if (ModelState.IsValid)
             {
                 _context.Add(day);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "EmailAddress", day.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Name", day.UserId);
+            ViewData["DayId"] = new SelectList(_context.Days, "DayId", "DayId", day.DayId);
             return View(day);
         }
 
@@ -80,7 +86,7 @@ namespace FitnessFrog.Core.UI.Controllers
             {
                 return NotFound();
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "EmailAddress", day.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Name", day.UserId);
             return View(day);
         }
 
@@ -116,7 +122,8 @@ namespace FitnessFrog.Core.UI.Controllers
                 }
                 return RedirectToAction("Index");
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "EmailAddress", day.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Name", day.UserId);
+            ViewData["DayId"] = new SelectList(_context.Days, "DayId", "DayId", day.DayId);
             return View(day);
         }
 

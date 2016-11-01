@@ -83,10 +83,22 @@ namespace FitnessFrog.Core.Domain
         /// </summary>
         public static class ExerciseTypes
         {
-            public const string BenchPress = "Bench Press";
-            public const string ChestFly = "Chest Fly";
-            public const string LegPress = "Leg Press";
-            public const string SeatedRow = "Seated Row";
+            public const string Abs = "Abs";
+            public const string Biceps = "Biceps";
+            public const string Calves = "Calves";
+            public const string Chest = "Chest";
+            public const string Forearms = "Forearms";
+            public const string Glutes = "Glutes";
+            public const string Hamstrings = "Hamstrings";
+            public const string Lats = "Lats";
+            public const string LowerBack = "Lower Back";
+            public const string MiddleBack = "Middle Back";
+            public const string Neck = "Neck";
+            public const string Shoulders = "Shoulders";
+            public const string Traps = "Traps";
+            public const string Triceps = "Triceps";
+            public const string Quads = "Quads";
+
             // TODO: Add more.
         }
 

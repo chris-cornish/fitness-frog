@@ -3,11 +3,30 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
     <title>@ViewData["Title"] - FitnessFrog.Core.UI</title>
+    
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
 
     <environment names="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+        @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />*@
+        
+        <!-- Bootstrap core CSS     -->
+        <link rel="stylesheet" href="~/lib/material-dashboard/css/bootstrap.min.css"/>
+
+        <!--  Material Dashboard CSS    -->
+        <link rel="stylesheet" href="~/lib/material-dashboard/css/material-dashboard.css"/>
+        
+        <!--   Bootstrap DatePicker CSS   -->
+        <link rel="stylesheet" href="~/lib/material-dashboard/css/datepicker.css"/>
+        
+        <!--     Fonts and icons     -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+        <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons" rel="stylesheet" type="text/css">
+
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -18,51 +37,172 @@
     @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+<div class="wrapper">
+    <div class="sidebar" data-color="purple" data-image="../lib/material-dashboard/img/sidebar-1.jpg" />
+        <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+        Tip 2: you can also add an image using data-image tag
+
+        -->
+
+        <div class="logo">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="simple-text">FitnessFrog.Core.UI</a>
+        </div>
+
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+                <li>
+                    <a asp-area="" asp-controller="Home" asp-action="Index">
+                        <i class="material-icons">home</i>
+                        <p>Home</p>
+                    </a>
+                </li>
+                @*<li>
+                    <a asp-area="" asp-controller="Home" asp-action="About">
+                        <i class="material-icons">person</i>
+                        <p>About</p>
+                    </a>
+                </li>*@
+                @*<li>
+                    <a asp-area="" asp-controller="Home" asp-action="Contact">
+                        <i class="material-icons">contact_mail</i>
+                        <p>Contact</p>
+                    </a>
+                </li>*@
+                <li>
+                    <a asp-area="" asp-controller="Days" asp-action="Index">
+                        <i class="material-icons">dashboard</i>
+                        <p>Days</p>
+                    </a>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Exercises" asp-action="Index">
+                        <i class="material-icons">fitness_center</i>
+                        <p>Exercises</p>
+                    </a>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Foods" asp-action="Index">
+                        <i class="material-icons">local_dining</i>
+                        <p>Foods</p>
+                    </a>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Notes" asp-action="Index">
+                        <i class="material-icons">content_paste</i>
+                        <p>Notes</p>
+                    </a>
+                </li>
+                <li>
+                    <a asp-area="" asp-controller="Users" asp-action="Index">
+                        <i class="material-icons">person</i>
+                        <p>Users</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+<div class="main-panel body-content">
+    @*<nav class="navbar navbar-transparent navbar-absolute">
+        <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle" data-toggle="collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">FitnessFrog.Core.UI</a>
+                <a class="navbar-brand" href="#">FitessFrog</a>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
+            <div class="collapse navbar-collapse">
+                <!-- <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="material-icons">dashboard</i>
+                            <p class="hidden-lg hidden-md">Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="material-icons">notifications</i>
+                            <span class="notification">5</span>
+                            <p class="hidden-lg hidden-md">Notifications</p>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Mike John responded to your email</a></li>
+                            <li><a href="#">You have 5 new tasks</a></li>
+                            <li><a href="#">You're now friend with Andrew</a></li>
+                            <li><a href="#">Another Notification</a></li>
+                            <li><a href="#">Another One</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                           <i class="material-icons">person</i>
+                           <p class="hidden-lg hidden-md">Profile</p>
+                       </a>
+                    </li>
+                </ul> -->
+                <!-- <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group  is-empty">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="material-input"></span>
+                    </div>
+                    <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                        <i class="material-icons">search</i><div class="ripple-container"></div>
+                    </button>
+                </form> -->
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2016 - FitnessFrog.Core.UI</p>
-        </footer>
-    </div>
+    </nav>*@
+    @RenderBody()
+    <footer class="text-center">
+        <p>&copy; 2016 - FitnessFrog.Core.UI</p>
+    </footer>
+</div>
 
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
+        @*<script src="~/js/site.js" asp-append-version="true"></script>*@
+        
+        <!--   Core JS Files   -->
+        @*<script src="~/lib/material-dashboard/js/jquery-3.1.0.min.js"></script>
+        <script src="~/lib/material-dashboard/css/bootstrap.min.css"></script>*@
+        <script src="~/lib/material-dashboard/js/material.min.js"></script>
+        
+        <!--   Datepicker Plugin   -->
+        <script src="~/lib/material-dashboard/js/bootstrap-datepicker.js"></script>
+                
+        <!--  Charts Plugin -->
+        <script src="~/lib/material-dashboard/js/chartist.min.js"></script>
+
+        <!--  Notifications Plugin    -->
+        <script src="~/lib/material-dashboard/js/bootstrap-notify.js"></script>
+
+        <!--  Google Maps Plugin    -->
+        @*<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>*@
+        
+        <!-- Material Dashboard javascript methods -->
+        <script src="~/lib/material-dashboard/js/material-dashboard.js"></script>
+
     </environment>
     <environment names="Staging,Production">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+        @*<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                 asp-fallback-test="window.jQuery">
+        
         </script>
         <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
                 asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
                 asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+        
         </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>*@
     </environment>
 
     @RenderSection("scripts", required: false)
+</div>
 </body>
 </html>

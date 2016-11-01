@@ -4,86 +4,115 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="purple">
+                        <h3 class="title">Users</h3>
+                        <h6><a asp-action="Create">+ Create New</a></h6>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-primary">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CreationDate)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.EmailAddress)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Enabled)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.LastLoginDate)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.LastLoginIp)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ModificationDate)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Name)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Password)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.PasswordRecoveryAnswer)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.PasswordRecoveryQuestion)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CreationDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EmailAddress)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Enabled)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastLoginDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastLoginIp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ModificationDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Password)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PasswordRecoveryAnswer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PasswordRecoveryQuestion)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreationDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmailAddress)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Enabled)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastLoginDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastLoginIp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModificationDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Password)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PasswordRecoveryAnswer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PasswordRecoveryQuestion)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.UserId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.UserId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.UserId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CreationDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.EmailAddress)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Enabled)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LastLoginDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LastLoginIp)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ModificationDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Password)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PasswordRecoveryAnswer)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PasswordRecoveryQuestion)
+                                        </td>
+
+                                        <td>
+                                            <div class="dropdown">
+                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    Edit/Del/Det
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labeledby="dropdownMenu1">
+                                                    <li>
+                                                        <a asp-action="Edit" asp-route-id="@item.UserId">Edit</a>
+                                                    </li>
+                                                    <li>
+                                                        <a asp-action="Details" asp-route-id="@item.UserId">Details</a>
+                                                    </li>
+                                                    <li>
+                                                        <a asp-action="Delete" asp-route-id="@item.UserId">Delete</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

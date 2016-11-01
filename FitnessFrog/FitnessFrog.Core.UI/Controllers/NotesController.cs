@@ -46,7 +46,8 @@ namespace FitnessFrog.Core.UI.Controllers
         // GET: Notes/Create
         public IActionResult Create()
         {
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "EmailAddress");
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Name");
+            ViewData["NoteType"] = new SelectList(EntityHelper.GetConstants(typeof(EntityHelper.NoteTypes)));
             return View();
         }
 
@@ -55,15 +56,19 @@ namespace FitnessFrog.Core.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("NoteId,CreationDate,ModificationDate,NoteDate,NoteText,NoteType,NoteTypeId,UserId")] Note note)
+        public async Task<IActionResult> Create([Bind("NoteId,NoteDate,NoteText,NoteType,NoteTypeId,UserId")] Note note)
         {
+            note.CreationDate = DateTime.Now;
+            note.ModificationDate = DateTime.Now;
+
             if (ModelState.IsValid)
             {
                 _context.Add(note);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "EmailAddress", note.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Name", note.UserId);
+            ViewData["NoteType"] = new SelectList(EntityHelper.GetConstants(typeof(EntityHelper.NoteTypes)), note.NoteType);
             return View(note);
         }
 
@@ -80,7 +85,8 @@ namespace FitnessFrog.Core.UI.Controllers
             {
                 return NotFound();
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "EmailAddress", note.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Name", note.UserId);
+            ViewData["NoteType"] = new SelectList(EntityHelper.GetConstants(typeof(EntityHelper.NoteTypes)), note.NoteType);
             return View(note);
         }
 
@@ -116,7 +122,8 @@ namespace FitnessFrog.Core.UI.Controllers
                 }
                 return RedirectToAction("Index");
             }
-            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "EmailAddress", note.UserId);
+            ViewData["UserId"] = new SelectList(_context.Users, "UserId", "Name", note.UserId);
+            ViewData["NoteType"] = new SelectList(EntityHelper.GetConstants(typeof(EntityHelper.NoteTypes)), note.NoteType);
             return View(note);
         }
 
