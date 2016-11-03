@@ -11,8 +11,6 @@
     <meta name="viewport" content="width=device-width" />
 
     <environment names="Development">
-        @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />*@
         
         <!-- Bootstrap core CSS     -->
         <link rel="stylesheet" href="~/lib/material-dashboard/css/bootstrap.min.css"/>
@@ -26,6 +24,9 @@
         <!--     Fonts and icons     -->
         <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
         <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons" rel="stylesheet" type="text/css">
+        
+        <!--     User CSS     -->
+        <link rel="stylesheet" href="~/css/site.css"/>
 
     </environment>
     <environment names="Staging,Production">
@@ -104,7 +105,7 @@
     </div>
 
 <div class="main-panel body-content">
-    @*<nav class="navbar navbar-transparent navbar-absolute">
+    <nav class="navbar navbar-transparent navbar-absolute">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse">
@@ -113,7 +114,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">FitessFrog</a>
+                @*<a class="navbar-brand" href="#">FitessFrog</a>*@
             </div>
             <div class="collapse navbar-collapse">
                 <!-- <ul class="nav navbar-nav navbar-right">
@@ -155,7 +156,7 @@
                 </form> -->
             </div>
         </div>
-    </nav>*@
+    </nav>
     @RenderBody()
     <footer class="text-center">
         <p>&copy; 2016 - FitnessFrog.Core.UI</p>
@@ -203,6 +204,5 @@
     </environment>
 
     @RenderSection("scripts", required: false)
-</div>
 </body>
 </html>
