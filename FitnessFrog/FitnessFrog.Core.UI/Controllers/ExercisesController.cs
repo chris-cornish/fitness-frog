@@ -58,7 +58,7 @@ namespace FitnessFrog.Core.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ExerciseId,DayId,ExerciseType,Reps,Sets,UnitType,UserId,Weight")] Exercise exercise)
+        public async Task<IActionResult> Create([Bind("ExerciseId,DayId,ExerciseType,ExerciseName,Reps,Sets,UnitType,UserId,Weight")] Exercise exercise)
         {
             exercise.CreationDate = DateTime.Now;
             exercise.ModificationDate = DateTime.Now;
@@ -101,7 +101,7 @@ namespace FitnessFrog.Core.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ExerciseId,CreationDate,DayId,ExerciseType,ModificationDate,Reps,Sets,UnitType,UserId,Weight")] Exercise exercise)
+        public async Task<IActionResult> Edit(int id, [Bind("ExerciseId,CreationDate,DayId,ExerciseType,ExerciseName,ModificationDate,Reps,Sets,UnitType,UserId,Weight")] Exercise exercise)
         {
             if (id != exercise.ExerciseId)
             {

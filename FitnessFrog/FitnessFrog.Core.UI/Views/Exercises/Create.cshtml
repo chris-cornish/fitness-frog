@@ -36,6 +36,13 @@
             </div>
         </div>
         <div class="form-group">
+            <label asp-for="ExerciseName" class="col-md-2 control-label"></label>
+            <div class="col-md-2">
+                <input asp-for="ExerciseName" class="form-control" />
+                <span asp-validation-for="ExerciseName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
             <label asp-for="Reps" class="col-md-2 control-label"></label>
             <div class="col-md-2">
                 <input asp-for="Reps" class="form-control" />

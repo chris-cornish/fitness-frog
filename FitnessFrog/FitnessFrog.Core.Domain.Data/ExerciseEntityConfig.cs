@@ -78,6 +78,11 @@ namespace FitnessFrog.Core.Domain.Data
                 .HasMaxLength(64)
                 .IsRequired();
 
+            entityBuilder.Property(a => a.ExerciseName)
+                .HasColumnName("ExerciseName")
+                .HasMaxLength(64)
+                .IsRequired();
+
             entityBuilder.Property(a => a.Sets)
                 .HasColumnName("Sets")
                 .IsRequired();

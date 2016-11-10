@@ -8,9 +8,10 @@ using FitnessFrog.Core.Domain.Data;
 namespace FitnessFrog.Core.Domain.Data.Migrations
 {
     [DbContext(typeof(FitnessFrogDbContext))]
-    partial class FitnessFrogDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161110232618_updatedTable")]
+    partial class updatedTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")

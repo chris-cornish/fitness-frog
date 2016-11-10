@@ -62,6 +62,10 @@ namespace FitnessFrog.Core.Domain
         /// </summary>
         public string ExerciseType { get; set; }
         /// <summary>
+        /// Gets or sets the name of the Exercise
+        /// </summary>
+        public string ExerciseName { get; set; }
+        /// <summary>
         /// Gets or sets the number of Sets performed for Exercise.
         /// </summary>
         public int Sets { get; set; }

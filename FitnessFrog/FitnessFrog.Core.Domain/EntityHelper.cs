@@ -98,8 +98,6 @@ namespace FitnessFrog.Core.Domain
             public const string Traps = "Traps";
             public const string Triceps = "Triceps";
             public const string Quads = "Quads";
-
-            // TODO: Add more.
         }
 
         #endregion
