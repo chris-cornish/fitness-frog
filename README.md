@@ -18,6 +18,22 @@ Likewise, it allows Fitness-Frog to run in multiple environments (Windows, Linux
 Note:
 The above packages should restore automatically on build.
 
+## To Run Project
+* Have VisualStudio 2015 installed
+* Have SQL Server 2014 Express installed
+* Clone this repository (https://github.com/chris-cornish/fitness-frog.git)
+- Open FitnessFrog.sln
+* Open (\FitnessFrog.Core.UI\appsettings.JSON)
+- Replace 'LAPTOP-MTVPNT7U\\\SQLEXPRESS' with your local database (usually computer name followed by '\\\SQLEXPRESS')
+* Open Package Manager Console ( Tools > NuGet Packet Manager > Package Manager Console)
+- Set Package soure to All
+- Set Default project to 'Core\FitnessFrog.Core.Domain.Data'
+- In the console type in 'update-database' then hit enter (should return with 'Done' when finished)
+* F5 to run project
+* In the current project state you'll need to add a User first (will have to manually enter LastLoginDate, IP, and Modification Date)
+- Next create a Day
+- Then Exercises, Notes, or Foods in any order.
+
 ## Other 1st-Time Experiences
 We're going with .NETCoreApp Framework (.NET Core 1.01).  This is Microsoft's go-forward strategy, but it's not
 totally mature.  Getting this solution setup was a hodge-podge of creating from templates, and manually
