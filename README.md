@@ -24,7 +24,7 @@ The above packages should restore automatically on build.
 * Clone this repository (https://github.com/chris-cornish/fitness-frog.git)
 - Open FitnessFrog.sln
 * Open (\FitnessFrog.Core.UI\appsettings.JSON)
-- Replace 'CHRIS-PC\\\SQLEXPRESS' with your local database (usually computer name followed by '\\\SQLEXPRESS')
+- Replace 'LAPTOP-MTVPNT7U\\\SQLEXPRESS' with your local database (usually computer name followed by '\\\SQLEXPRESS')
 * Open Package Manager Console ( Tools > NuGet Packet Manager > Package Manager Console)
 - Set Package soure to All
 - Set Default project to 'Core\FitnessFrog.Core.Domain.Data'
