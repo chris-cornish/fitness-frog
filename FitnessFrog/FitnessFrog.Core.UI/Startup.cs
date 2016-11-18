@@ -73,6 +73,7 @@ namespace FitnessFrog.Core.UI
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Users}/{action=Index}/{id?}");
+
             });
         }
     }
