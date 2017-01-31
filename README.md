@@ -26,7 +26,7 @@ The above packages should restore automatically on build.
 * Open (\FitnessFrog.Core.UI\appsettings.JSON)
 - Replace 'LAPTOP-MTVPNT7U\\\SQLEXPRESS' with your local database (usually computer name followed by '\\\SQLEXPRESS')
 * Open Package Manager Console ( Tools > NuGet Packet Manager > Package Manager Console)
-- Set Package soure to All
+- Set Package source to All
 - Set Default project to 'Core\FitnessFrog.Core.Domain.Data'
 - In the console type in 'update-database' then hit enter (should return with 'Done' when finished)
 * F5 to run project
